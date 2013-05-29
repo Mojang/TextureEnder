@@ -1,0 +1,65 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+archivesBaseName = 'TextureEnder'
+
+sourceCompatibility = 1.6
+
+repositories {
+    maven {
+        url "http://s3.amazonaws.com/Minecraft.Download/libraries"
+    }
+}
+
+project.ext.with {
+    set('dependenciesDir', new File(buildDir, 'libs'))
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
+
+task(run, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.mojang.minecraft.textureender'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task collectDependencies(type: Copy, dependsOn: 'jar') {
+    description 'Copy external libraries jarfiles'
+
+    inputs.files(configurations.compile)
+    outputs.dir(project.dependenciesDir)
+
+    project.dependenciesDir.mkdirs()
+
+    from {
+        configurations.runtime.findAll {
+            !it.name.contains("natives")
+        }
+    }
+
+    rename '(.*)-[.0-9]*.jar', '$1.jar'
+
+    into project.dependenciesDir
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/res'
+        }
+    }
+}
+
+jar {
+    def classPath = configurations.runtime.findAll{
+        !it.name.contains("natives")
+    }.collect{
+        it.name.replaceAll(/-[.0-9]*.jar/, ".jar")
+    }.join(' ')
+
+    manifest {
+        attributes 'Main-Class': 'com.mojang.minecraft.textureender'
+        attributes 'Class-Path': classPath
+    }
+}
