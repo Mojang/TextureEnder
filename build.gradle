@@ -17,6 +17,9 @@ project.ext.with {
 
 dependencies {
     compile fileTree(dir: 'lib', include: '*.jar')
+    compile 'commons-io:commons-io:2.4'
+    compile 'com.google.code.gson:gson:2.2.2'
+    compile 'com.google.guava:guava:14.0'
 }
 
 task(run, dependsOn: 'classes', type: JavaExec) {

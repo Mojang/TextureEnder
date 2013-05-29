@@ -4,6 +4,10 @@ import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 public class ConverterGui extends JPanel {
     private static final Font MONOSPACED = new Font("Monospaced", Font.PLAIN, 12);
@@ -16,7 +20,7 @@ public class ConverterGui extends JPanel {
         super(true);
         instance = this;
 
-        setPreferredSize(new Dimension(670, 480));
+        setPreferredSize(new Dimension(800, 600));
         setLayout(new BorderLayout());
 
         console.setFont(MONOSPACED);
@@ -26,6 +30,31 @@ public class ConverterGui extends JPanel {
         console.setLineWrap(true);
 
         add(scroll);
+    }
+
+    public static void logLine(String line, Throwable throwable) {
+        logLine(line);
+        logLine(throwable);
+    }
+
+    public static void logLine(Throwable throwable) {
+        StringWriter writer = null;
+        PrintWriter printWriter = null;
+        String result = throwable.toString();
+
+        try {
+            writer = new StringWriter();
+            printWriter = new PrintWriter(writer);
+            throwable.printStackTrace(printWriter);
+            result = writer.toString();
+        } finally {
+            try {
+                if (writer != null) writer.close();
+                if (printWriter != null) printWriter.close();
+            } catch (IOException ex) {}
+        }
+
+        logLine(result);
     }
 
     public static void logLine(final String line) {
@@ -49,11 +78,15 @@ public class ConverterGui extends JPanel {
         }
 
         try {
-            document.insertString(document.getLength(), line, null);
+            document.insertString(document.getLength(), line + "\n", null);
         } catch (BadLocationException ignored) {}
 
         if (shouldScroll) {
             scrollBar.setValue(Integer.MAX_VALUE);
         }
+    }
+
+    public static String relativize(File root, File file) {
+        return root.toURI().relativize(file.toURI()).toString();
     }
 }
