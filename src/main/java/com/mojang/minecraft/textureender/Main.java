@@ -67,11 +67,16 @@ public class Main {
         if (!folder.isDirectory()) return;
 
         ConverterGui.logLine("Starting conversion on " + folder.getAbsolutePath());
-        ConverterGui.logLine(TASKS_TO_RUN.size() + " task(s) to run...");
+        List<ConverterTask> tasks = Lists.newArrayList(TASKS_TO_RUN);
 
-        for (ConverterTask task : TASKS_TO_RUN) {
+        for (int i = 0; i < tasks.size(); i++) {
+            ConverterTask task = tasks.get(i);
             ConverterGui.logLine("Starting task '" + task.getTaskName() + "'");
-            task.run(folder);
+            List<ConverterTask> extraTasks = task.run(folder);
+
+            if (extraTasks != null) {
+                tasks.addAll(i + 1, extraTasks);
+            }
         }
 
         ConverterGui.logLine("Finished converting " + folder.getAbsolutePath());
@@ -84,6 +89,7 @@ public class Main {
                     File copy = new File(FilenameUtils.removeExtension(file.getAbsolutePath()) + "-converted-" + System.currentTimeMillis() + ".zip");
 
                     try {
+                        ConverterGui.logLine("Making a copy of " + file);
                         FileUtils.copyFile(file, copy);
                     } catch (IOException e) {
                         ConverterGui.logLine("Couldn't copy " + file + " to " + copy, e);
@@ -98,6 +104,7 @@ public class Main {
                 File copy = new File(file.getAbsolutePath() + "-converted-" + System.currentTimeMillis());
 
                 try {
+                    ConverterGui.logLine("Making a copy of " + file);
                     FileUtils.copyDirectory(file, copy);
                 } catch (IOException e) {
                     ConverterGui.logLine("Couldn't copy " + file + " to " + copy, e);

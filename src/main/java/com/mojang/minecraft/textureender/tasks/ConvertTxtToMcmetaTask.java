@@ -11,10 +11,12 @@ import com.mojang.minecraft.textureender.ConverterTask;
 import net.minecraft.client.resources.metadata.animation.AnimationFrame;
 import net.minecraft.client.resources.metadata.animation.AnimationMetadataSection;
 import net.minecraft.client.resources.metadata.animation.AnimationMetadataSectionSerializer;
+import net.minecraft.client.resources.metadata.pack.PackMetadataSection;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,12 +34,20 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
     }
 
     @Override
-    public void run(File folder) {
+    public List<ConverterTask> run(File folder) {
         Iterator<File> iterator = FileUtils.iterateFiles(folder, new String[]{"txt"}, true);
+        List<ConverterTask> result = Lists.newArrayList();
 
         while (iterator.hasNext()) {
-            convertFileMetadata(folder, iterator.next());
+            File file = iterator.next();
+            convertFileMetadata(folder, file);
+
+            if (file.equals(new File(folder, "pack.txt"))) {
+                // Add filename converter task
+            }
         }
+
+        return result;
     }
 
     @Override
@@ -47,18 +57,17 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
 
     private void convertFileMetadata(File root, File txtFile) {
         File sourceFile = new File(FilenameUtils.removeExtension(txtFile.getAbsolutePath()));
+        File metadataFile = new File(sourceFile.getAbsolutePath() + ".mcmeta");
+        boolean converted = false;
+
+        if (metadataFile.exists()) {
+            logLine("Ignoring " + relativize(root, txtFile) + " for metadata conversion as " + relativize(root, metadataFile) + " already exists...");
+            return;
+        }
 
         if (sourceFile.isFile() && FilenameUtils.isExtension(sourceFile.getAbsolutePath(), "png")) {
             // It's an image metadata
-            File metadataFile = new File(sourceFile.getAbsolutePath() + ".mcmeta");
-
-            if (metadataFile.exists()) {
-                logLine("Ignoring " + relativize(root, txtFile) + " for metadata conversion as " + relativize(root, metadataFile) + " already exists...");
-                return;
-            } else {
-                logLine("Found animation metadata to convert: " + relativize(root, txtFile));
-            }
-
+            logLine("Found animation metadata to convert: " + relativize(root, txtFile));
             AnimationMetadataSection metadata = getAnimationMetadata(root, txtFile);
 
             if (metadata != null) {
@@ -71,10 +80,43 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
                     logLine("Couldn't save new animation metadata to " + relativize(root, metadataFile), e);
                     return;
                 }
+            }
 
-                if (!FileUtils.deleteQuietly(txtFile)) {
-                    logLine("Couldn't delete legacy animation metadata " + relativize(root, txtFile));
-                }
+            converted = true;
+        } else if (txtFile.equals(new File(root, "pack.txt"))) {
+            // It's the pack information file
+            logLine("Found pack metadata to convert: " + relativize(root, txtFile));
+
+            List<String> lines;
+            try {
+                lines = FileUtils.readLines(txtFile);
+            } catch (IOException e) {
+                ConverterGui.logLine("Couldn't read " + relativize(root, txtFile) + " for pack metadata conversion", e);
+                return;
+            }
+
+            if (lines.isEmpty()) {
+                ConverterGui.logLine("Pack description is empty, cannot convert! At " + relativize(root, txtFile));
+                return;
+            }
+
+            PackMetadataSection metadata = new PackMetadataSection(lines.get(0), 1);
+            try {
+                JsonElement pack = gson.toJsonTree(metadata);
+                JsonObject json = new JsonObject();
+                json.add("pack", pack);
+                FileUtils.writeStringToFile(metadataFile, gson.toJson(json));
+            } catch (Exception e) {
+                logLine("Couldn't save new pack metadata to " + relativize(root, metadataFile), e);
+                return;
+            }
+
+            converted = true;
+        }
+
+        if (converted) {
+            if (!FileUtils.deleteQuietly(txtFile)) {
+                logLine("Couldn't delete legacy animation metadata " + relativize(root, txtFile));
             }
         }
     }

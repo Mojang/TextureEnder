@@ -1,8 +1,9 @@
 package com.mojang.minecraft.textureender;
 
 import java.io.File;
+import java.util.List;
 
 public interface ConverterTask {
-    public void run(File folder);
+    public List<ConverterTask> run(File folder);
     public String getTaskName();
 }
