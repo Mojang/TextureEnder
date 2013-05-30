@@ -30,7 +30,7 @@ public class Main {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Throwable e) {
+        } catch (Throwable ignored) {
         }
 
         JFrame frame = new JFrame("Minecraft Texture Ender");
@@ -143,6 +143,9 @@ public class Main {
             }
         }
 
-        IOUtils.closeQuietly(zip);
+        try {
+            zip.close();
+        } catch (IOException ignored) {
+        }
     }
 }
