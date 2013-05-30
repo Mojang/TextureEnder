@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.minecraft.textureender.tasks.ConvertTxtToMcmetaTask;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -11,9 +12,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public class Main {
     private static final List<ConverterTask> TASKS_TO_RUN = Lists.newArrayList();
@@ -86,11 +91,11 @@ public class Main {
         for (File file : files) {
             if (file.isFile()) {
                 if (FilenameUtils.isExtension(file.getAbsolutePath(), "zip")) {
-                    File copy = new File(FilenameUtils.removeExtension(file.getAbsolutePath()) + "-converted-" + System.currentTimeMillis() + ".zip");
+                    File copy = new File(FilenameUtils.removeExtension(file.getAbsolutePath()) + "-converted-" + System.currentTimeMillis());
 
                     try {
-                        ConverterGui.logLine("Making a copy of " + file);
-                        FileUtils.copyFile(file, copy);
+                        ConverterGui.logLine("Extracting " + file);
+                        extractZip(file, copy);
                     } catch (IOException e) {
                         ConverterGui.logLine("Couldn't copy " + file + " to " + copy, e);
                         continue;
@@ -118,5 +123,26 @@ public class Main {
         }
 
         ConverterGui.logLine("All done!");
+    }
+
+    private static void extractZip(File source, File output) throws IOException {
+        output.mkdirs();
+
+        ZipFile zip = new ZipFile(source);
+        Enumeration<? extends ZipEntry> entries = zip.entries();
+
+        while (entries.hasMoreElements()) {
+            ZipEntry entry = entries.nextElement();
+            String name = entry.getName();
+            File dest = new File(output, name);
+
+            if (dest.getParentFile() != null) dest.getParentFile().mkdirs();
+
+            if (!entry.isDirectory()) {
+                FileUtils.copyInputStreamToFile(zip.getInputStream(entry), dest);
+            }
+        }
+
+        IOUtils.closeQuietly(zip);
     }
 }
