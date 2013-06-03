@@ -17,6 +17,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,7 +44,17 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
             convertFileMetadata(folder, file);
 
             if (file.equals(new File(folder, "pack.txt"))) {
-                // Add filename converter task
+                InputStream stream = getClass().getResourceAsStream("/rename_lists/texpack_to_respack.txt");
+
+                if (stream != null) {
+                    try {
+                        result.add(new RenameFilesTask("Renaming legacy texpack files", stream));
+                    } catch (IOException e) {
+                        logLine("Couldn't read list for legacy file renames", e);
+                    }
+                } else {
+                    logLine("Couldn't find list for legacy file renames");
+                }
             }
         }
 
@@ -56,7 +67,7 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
     }
 
     private void convertFileMetadata(File root, File txtFile) {
-        File sourceFile = new File(FilenameUtils.removeExtension(txtFile.getAbsolutePath()));
+        File sourceFile = new File(FilenameUtils.removeExtension(txtFile.getAbsolutePath()) + ".png");
         File metadataFile = new File(sourceFile.getAbsolutePath() + ".mcmeta");
         boolean converted = false;
 
@@ -65,25 +76,7 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
             return;
         }
 
-        if (sourceFile.isFile() && FilenameUtils.isExtension(sourceFile.getAbsolutePath(), "png")) {
-            // It's an image metadata
-            logLine("Found animation metadata to convert: " + relativize(root, txtFile));
-            AnimationMetadataSection metadata = getAnimationMetadata(root, txtFile);
-
-            if (metadata != null) {
-                try {
-                    JsonElement animation = gson.toJsonTree(metadata);
-                    JsonObject json = new JsonObject();
-                    json.add("animation", animation);
-                    FileUtils.writeStringToFile(metadataFile, gson.toJson(json));
-                } catch (Exception e) {
-                    logLine("Couldn't save new animation metadata to " + relativize(root, metadataFile), e);
-                    return;
-                }
-            }
-
-            converted = true;
-        } else if (txtFile.equals(new File(root, "pack.txt"))) {
+        if (txtFile.equals(new File(root, "pack.txt"))) {
             // It's the pack information file
             logLine("Found pack metadata to convert: " + relativize(root, txtFile));
 
@@ -109,6 +102,24 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
             } catch (Exception e) {
                 logLine("Couldn't save new pack metadata to " + relativize(root, metadataFile), e);
                 return;
+            }
+
+            converted = true;
+        } else if (sourceFile.isFile()) {
+            // It's an image metadata
+            logLine("Found animation metadata to convert: " + relativize(root, txtFile));
+            AnimationMetadataSection metadata = getAnimationMetadata(root, txtFile);
+
+            if (metadata != null) {
+                try {
+                    JsonElement animation = gson.toJsonTree(metadata);
+                    JsonObject json = new JsonObject();
+                    json.add("animation", animation);
+                    FileUtils.writeStringToFile(metadataFile, gson.toJson(json));
+                } catch (Exception e) {
+                    logLine("Couldn't save new animation metadata to " + relativize(root, metadataFile), e);
+                    return;
+                }
             }
 
             converted = true;

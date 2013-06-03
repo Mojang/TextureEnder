@@ -1,0 +1,345 @@
+textures/blocks/activatorRail.png = textures/blocks_renamed/rail_activator.png
+textures/blocks/activatorRail_powered.png = textures/blocks_renamed/rail_activator_powered.png
+textures/blocks/detectorRail.png = textures/blocks_renamed/rail_detector.png
+textures/blocks/detectorRail_on.png = textures/blocks_renamed/rail_detector_powered.png
+textures/blocks/goldenRail.png = textures/blocks_renamed/rail_golden.png
+textures/blocks/goldenRail_powered.png = textures/blocks_renamed/rail_golden_powered.png
+textures/blocks/rail.png = textures/blocks_renamed/rail_normal.png
+textures/blocks/rail_turn.png = textures/blocks_renamed/rail_normal_turned.png
+
+textures/blocks/anvil_base.png = textures/blocks_renamed/anvil_base.png
+textures/blocks/anvil_top.png = textures/blocks_renamed/anvil_top_damaged_0.png
+textures/blocks/anvil_top_damaged_1.png = textures/blocks_renamed/anvil_top_damaged_1.png
+textures/blocks/anvil_top_damaged_2.png = textures/blocks_renamed/anvil_top_damaged_2.png
+
+textures/blocks/crops_0.png = textures/blocks_renamed/wheat_stage_0.png
+textures/blocks/crops_1.png = textures/blocks_renamed/wheat_stage_1.png
+textures/blocks/crops_2.png = textures/blocks_renamed/wheat_stage_2.png
+textures/blocks/crops_3.png = textures/blocks_renamed/wheat_stage_3.png
+textures/blocks/crops_4.png = textures/blocks_renamed/wheat_stage_4.png
+textures/blocks/crops_5.png = textures/blocks_renamed/wheat_stage_5.png
+textures/blocks/crops_6.png = textures/blocks_renamed/wheat_stage_6.png
+textures/blocks/crops_7.png = textures/blocks_renamed/wheat_stage_7.png
+
+textures/blocks/potatoes_0.png = textures/blocks_renamed/potatoes_stage_0.png
+textures/blocks/potatoes_1.png = textures/blocks_renamed/potatoes_stage_1.png
+textures/blocks/potatoes_2.png = textures/blocks_renamed/potatoes_stage_2.png
+textures/blocks/potatoes_3.png = textures/blocks_renamed/potatoes_stage_3.png
+
+textures/blocks/carrots_0.png = textures/blocks_renamed/carrots_stage_0.png
+textures/blocks/carrots_1.png = textures/blocks_renamed/carrots_stage_1.png
+textures/blocks/carrots_2.png = textures/blocks_renamed/carrots_stage_2.png
+textures/blocks/carrots_3.png = textures/blocks_renamed/carrots_stage_3.png
+
+textures/blocks/stem_bent.png = textures/blocks_renamed/pumpkin_stem_connected.png
+textures/blocks/stem_straight.png = textures/blocks_renamed/pumpkin_stem_disconnected.png
+
+textures/blocks/stem_bent.png = textures/blocks_renamed/melon_stem_connected.png
+textures/blocks/stem_straight.png = textures/blocks_renamed/melon_stem_disconnected.png
+textures/blocks/melon_side.png = textures/blocks_renamed/melon_side.png
+textures/blocks/melon_top.png = textures/blocks_renamed/melon_top.png
+
+textures/blocks/netherStalk_0.png = textures/blocks_renamed/nether_stalk_0.png
+textures/blocks/netherStalk_1.png = textures/blocks_renamed/nether_stalk_1.png
+textures/blocks/netherStalk_2.png = textures/blocks_renamed/nether_stalk_2.png
+
+textures/blocks/cloth_0.png = textures/blocks_renamed/wool_colored_white.png
+textures/blocks/cloth_1.png = textures/blocks_renamed/wool_colored_orange.png
+textures/blocks/cloth_2.png = textures/blocks_renamed/wool_colored_magenta.png
+textures/blocks/cloth_3.png = textures/blocks_renamed/wool_colored_light_blue.png
+textures/blocks/cloth_4.png = textures/blocks_renamed/wool_colored_yellow.png
+textures/blocks/cloth_5.png = textures/blocks_renamed/wool_colored_lime.png
+textures/blocks/cloth_6.png = textures/blocks_renamed/wool_colored_pink.png
+textures/blocks/cloth_7.png = textures/blocks_renamed/wool_colored_gray.png
+textures/blocks/cloth_8.png = textures/blocks_renamed/wool_colored_silver.png
+textures/blocks/cloth_9.png = textures/blocks_renamed/wool_colored_cyan.png
+textures/blocks/cloth_10.png = textures/blocks_renamed/wool_colored_purple.png
+textures/blocks/cloth_11.png = textures/blocks_renamed/wool_colored_blue.png
+textures/blocks/cloth_12.png = textures/blocks_renamed/wool_colored_brown.png
+textures/blocks/cloth_13.png = textures/blocks_renamed/wool_colored_green.png
+textures/blocks/cloth_14.png = textures/blocks_renamed/wool_colored_red.png
+textures/blocks/cloth_15.png = textures/blocks_renamed/wool_colored_black.png
+
+textures/blocks/cocoa_0.png = textures/blocks_renamed/cocoa_stage_0.png
+textures/blocks/cocoa_1.png = textures/blocks_renamed/cocoa_stage_1.png
+textures/blocks/cocoa_2.png = textures/blocks_renamed/cocoa_stage_2.png
+
+textures/blocks/clay.png = textures/blocks_renamed/clay.png
+textures/blocks/clayHardened.png = textures/blocks_renamed/hardened_clay.png
+textures/blocks/clayHardenedStained_0.png = textures/blocks_renamed/hardened_clay_stained_white.png
+textures/blocks/clayHardenedStained_1.png = textures/blocks_renamed/hardened_clay_stained_orange.png
+textures/blocks/clayHardenedStained_2.png = textures/blocks_renamed/hardened_clay_stained_magenta.png
+textures/blocks/clayHardenedStained_3.png = textures/blocks_renamed/hardened_clay_stained_light_blue.png
+textures/blocks/clayHardenedStained_4.png = textures/blocks_renamed/hardened_clay_stained_yellow.png
+textures/blocks/clayHardenedStained_5.png = textures/blocks_renamed/hardened_clay_stained_lime.png
+textures/blocks/clayHardenedStained_6.png = textures/blocks_renamed/hardened_clay_stained_pink.png
+textures/blocks/clayHardenedStained_7.png = textures/blocks_renamed/hardened_clay_stained_gray.png
+textures/blocks/clayHardenedStained_8.png = textures/blocks_renamed/hardened_clay_stained_silver.png
+textures/blocks/clayHardenedStained_9.png = textures/blocks_renamed/hardened_clay_stained_cyan.png
+textures/blocks/clayHardenedStained_10.png = textures/blocks_renamed/hardened_clay_stained_purple.png
+textures/blocks/clayHardenedStained_11.png = textures/blocks_renamed/hardened_clay_stained_blue.png
+textures/blocks/clayHardenedStained_12.png = textures/blocks_renamed/hardened_clay_stained_brown.png
+textures/blocks/clayHardenedStained_13.png = textures/blocks_renamed/hardened_clay_stained_green.png
+textures/blocks/clayHardenedStained_14.png = textures/blocks_renamed/hardened_clay_stained_red.png
+textures/blocks/clayHardenedStained_15.png = textures/blocks_renamed/hardened_clay_stained_black.png
+
+textures/blocks/destroy_0.png = textures/blocks_renamed/destroy_stage_0.png
+textures/blocks/destroy_1.png = textures/blocks_renamed/destroy_stage_1.png
+textures/blocks/destroy_2.png = textures/blocks_renamed/destroy_stage_2.png
+textures/blocks/destroy_3.png = textures/blocks_renamed/destroy_stage_3.png
+textures/blocks/destroy_4.png = textures/blocks_renamed/destroy_stage_4.png
+textures/blocks/destroy_5.png = textures/blocks_renamed/destroy_stage_5.png
+textures/blocks/destroy_6.png = textures/blocks_renamed/destroy_stage_6.png
+textures/blocks/destroy_7.png = textures/blocks_renamed/destroy_stage_7.png
+textures/blocks/destroy_8.png = textures/blocks_renamed/destroy_stage_8.png
+textures/blocks/destroy_9.png = textures/blocks_renamed/destroy_stage_9.png
+
+textures/blocks/blockCoal.png = textures/blocks_renamed/coal_block.png
+textures/blocks/blockDiamond.png = textures/blocks_renamed/diamond_block.png
+textures/blocks/blockEmerald.png = textures/blocks_renamed/emerald_block.png
+textures/blocks/blockGold.png = textures/blocks_renamed/gold_block.png
+textures/blocks/blockIron.png = textures/blocks_renamed/iron_block.png
+textures/blocks/blockLapis.png = textures/blocks_renamed/lapis_block.png
+textures/blocks/blockRedstone.png = textures/blocks_renamed/redstone_block.png
+
+textures/blocks/oreCoal.png = textures/blocks_renamed/coal_ore.png
+textures/blocks/oreDiamond.png = textures/blocks_renamed/diamond_ore.png
+textures/blocks/oreEmerald.png = textures/blocks_renamed/emerald_ore.png
+textures/blocks/oreGold.png = textures/blocks_renamed/gold_ore.png
+textures/blocks/oreIron.png = textures/blocks_renamed/iron_ore.png
+textures/blocks/oreLapis.png = textures/blocks_renamed/lapis_ore.png
+textures/blocks/oreRedstone.png = textures/blocks_renamed/redstone_ore.png
+
+textures/blocks/rose.png = textures/blocks_renamed/flower_rose.png
+textures/blocks/flower.png = textures/blocks_renamed/flower_dandelion.png
+
+textures/blocks/fire_0.png = textures/blocks_renamed/fire_layer_0.png
+textures/blocks/fire_1.png = textures/blocks_renamed/fire_layer_1.png
+
+textures/blocks/leaves.png = textures/blocks_renamed/leaves_oak.png
+textures/blocks/leaves_opaque.png = textures/blocks_renamed/leaves_oak_opaque.png
+textures/blocks/leaves_jungle.png = textures/blocks_renamed/leaves_jungle.png
+textures/blocks/leaves_jungle_opaque.png = textures/blocks_renamed/leaves_jungle_opaque.png
+textures/blocks/leaves.png = textures/blocks_renamed/leaves_birch.png
+textures/blocks/leaves_opaque.png = textures/blocks_renamed/leaves_birch_opaque.png
+textures/blocks/leaves_spruce.png = textures/blocks_renamed/leaves_spruce.png
+textures/blocks/leaves_spruce_opaque.png = textures/blocks_renamed/leaves_spruce_opaque.png
+
+textures/blocks/tree_side.png = textures/blocks_renamed/log_oak.png
+textures/blocks/tree_jungle.png = textures/blocks_renamed/log_jungle.png
+textures/blocks/tree_birch.png = textures/blocks_renamed/log_birch.png
+textures/blocks/tree_spruce.png = textures/blocks_renamed/log_spruce.png
+textures/blocks/tree_top.png = textures/blocks_renamed/log_oak_top.png
+textures/blocks/tree_top.png = textures/blocks_renamed/log_jungle_top.png
+textures/blocks/tree_top.png = textures/blocks_renamed/log_birch_top.png
+textures/blocks/tree_top.png = textures/blocks_renamed/log_spruce_top.png
+
+textures/blocks/wood.png = textures/blocks_renamed/planks_oak.png
+textures/blocks/wood_birch.png = textures/blocks_renamed/planks_birch.png
+textures/blocks/wood_jungle.png = textures/blocks_renamed/planks_jungle.png
+textures/blocks/wood_spruce.png = textures/blocks_renamed/planks_spruce.png
+
+textures/blocks/sapling.png = textures/blocks_renamed/sapling_oak.png
+textures/blocks/sapling_birch.png = textures/blocks_renamed/sapling_birch.png
+textures/blocks/sapling_jungle.png = textures/blocks_renamed/sapling_jungle.png
+textures/blocks/sapling_spruce.png = textures/blocks_renamed/sapling_spruce.png
+
+textures/blocks/doorIron_lower.png = textures/blocks_renamed/door_iron_lower.png
+textures/blocks/doorIron_upper.png = textures/blocks_renamed/door_iron_upper.png
+textures/blocks/doorWood_lower.png = textures/blocks_renamed/door_wood_lower.png
+textures/blocks/doorWood_upper.png = textures/blocks_renamed/door_wood_upper.png
+
+textures/blocks/workbench_front.png = textures/blocks_renamed/workbench_front.png
+textures/blocks/workbench_side.png = textures/blocks_renamed/workbench_side.png
+textures/blocks/workbench_top.png = textures/blocks_renamed/workbench_top.png
+
+textures/blocks/bed_feet_end.png = textures/blocks_renamed/bed_feet_end.png
+textures/blocks/bed_feet_side.png = textures/blocks_renamed/bed_feet_side.png
+textures/blocks/bed_feet_top.png = textures/blocks_renamed/bed_feet_top.png
+textures/blocks/bed_head_end.png = textures/blocks_renamed/bed_head_end.png
+textures/blocks/bed_head_side.png = textures/blocks_renamed/bed_head_side.png
+textures/blocks/bed_head_top.png = textures/blocks_renamed/bed_head_top.png
+
+textures/blocks/beacon.png = textures/blocks_renamed/beacon.png
+
+textures/blocks/bedrock.png = textures/blocks_renamed/bedrock.png
+
+textures/blocks/bookshelf.png = textures/blocks_renamed/bookshelf.png
+
+textures/blocks/brewingStand.png = textures/blocks_renamed/brewing_stand.png
+textures/blocks/brewingStand_base.png = textures/blocks_renamed/brewing_stand_base.png
+
+textures/blocks/whiteStone.png = textures/blocks_renamed/end_stone.png
+
+textures/blocks/tnt_bottom.png = textures/blocks_renamed/tnt_bottom.png
+textures/blocks/tnt_side.png = textures/blocks_renamed/tnt_side.png
+textures/blocks/tnt_top.png = textures/blocks_renamed/tnt_top.png
+
+textures/blocks/sandstone_bottom.png = textures/blocks_renamed/sandstone_bottom.png
+textures/blocks/sandstone_carved.png = textures/blocks_renamed/sandstone_carved.png
+textures/blocks/sandstone_side.png = textures/blocks_renamed/sandstone_side.png
+textures/blocks/sandstone_smooth.png = textures/blocks_renamed/sandstone_smooth.png
+textures/blocks/sandstone_top.png = textures/blocks_renamed/sandstone_top.png
+
+textures/blocks/cauldron_bottom.png = textures/blocks_renamed/cauldron_bottom.png
+textures/blocks/cauldron_inner.png = textures/blocks_renamed/cauldron_inner.png
+textures/blocks/cauldron_side.png = textures/blocks_renamed/cauldron_side.png
+textures/blocks/cauldron_top.png = textures/blocks_renamed/cauldron_top.png
+
+textures/blocks/cake_bottom.png = textures/blocks_renamed/cake_bottom.png
+textures/blocks/cake_inner.png = textures/blocks_renamed/cake_inner.png
+textures/blocks/cake_side.png = textures/blocks_renamed/cake_side.png
+textures/blocks/cake_top.png = textures/blocks_renamed/cake_top.png
+
+textures/blocks/quartzblock_bottom.png = textures/blocks_renamed/quartz_block_bottom.png
+textures/blocks/quartzblock_chiseled.png = textures/blocks_renamed/quartz_block_chiseled.png
+textures/blocks/quartzblock_chiseled_top.png = textures/blocks_renamed/quartz_block_chiseled_top.png
+textures/blocks/quartzblock_lines.png = textures/blocks_renamed/quartz_block_lines.png
+textures/blocks/quartzblock_lines_top.png = textures/blocks_renamed/quartz_block_lines_top.png
+textures/blocks/quartzblock_side.png = textures/blocks_renamed/quartz_block_side.png
+textures/blocks/quartzblock_top.png = textures/blocks_renamed/quartz_block_top.png
+
+textures/blocks/netherquartz.png = textures/blocks_renamed/quartz_ore.png
+
+textures/blocks/stonebrick.png = textures/blocks_renamed/stonebrick.png
+textures/blocks/stonebricksmooth.png = textures/blocks_renamed/stonebrick_smooth.png
+textures/blocks/stonebricksmooth_carved.png = textures/blocks_renamed/stonebrick_smooth_carved.png
+textures/blocks/stonebricksmooth_cracked.png = textures/blocks_renamed/stonebrick_smooth_cracked.png
+textures/blocks/stonebricksmooth_mossy.png = textures/blocks_renamed/stonebrick_smooth_mossy.png
+
+textures/blocks/stone.png = textures/blocks_renamed/stone.png
+textures/blocks/stoneMoss.png = textures/blocks_renamed/cobblestone_messy.png
+textures/blocks/stoneslab_side.png = textures/blocks_renamed/stone_slab_side.png
+textures/blocks/stoneslab_top.png = textures/blocks_renamed/stone_slab_top.png
+
+textures/blocks/reeds.png = textures/blocks_renamed/reeds.png
+
+textures/blocks/sand.png = textures/blocks_renamed/sand.png
+
+textures/blocks/snow.png = textures/blocks_renamed/snow.png
+textures/blocks/snow_side.png = textures/blocks_renamed/grass_side_snowed.png
+
+textures/blocks/grass_side.png = textures/blocks_renamed/grass_side.png
+textures/blocks/grass_side_overlay.png = textures/blocks_renamed/grass_side_overlay.png
+textures/blocks/grass_top.png = textures/blocks_renamed/grass_top.png
+
+textures/blocks/mushroom_brown.png = textures/blocks_renamed/mushroom_brown.png
+textures/blocks/mushroom_red.png = textures/blocks_renamed/mushroom_red.png
+textures/blocks/mushroom_inside.png = textures/blocks_renamed/mushroom_block_inside.png
+textures/blocks/mushroom_skin_brown.png = textures/blocks_renamed/mushroom_block_skin_brown.png
+textures/blocks/mushroom_skin_red.png = textures/blocks_renamed/mushroom_block_skin_red.png
+textures/blocks/mushroom_skin_stem.png = textures/blocks_renamed/mushroom_block_skin_stem.png
+
+textures/blocks/redstoneLight.png = textures/blocks_renamed/redstone_lamp_off.png
+textures/blocks/redstoneLight_lit.png = textures/blocks_renamed/redstone_lamp_on.png
+
+textures/blocks/redstoneDust_cross.png = textures/blocks_renamed/redstone_dust_cross.png
+textures/blocks/redstoneDust_cross_overlay.png = textures/blocks_renamed/redstone_dust_cross_overlay.png
+textures/blocks/redstoneDust_line.png = textures/blocks_renamed/redstone_dust_line.png
+textures/blocks/redstoneDust_line_overlay.png = textures/blocks_renamed/redstone_dust_line_overlay.png
+
+textures/blocks/redtorch.png = textures/blocks_renamed/redstone_torch_off.png
+textures/blocks/redtorch_lit.png = textures/blocks_renamed/redstone_torch_on.png
+textures/blocks/repeater.png = textures/blocks_renamed/repeater_off.png
+textures/blocks/repeater_lit.png = textures/blocks_renamed/repeater_on.png
+
+textures/blocks/pumpkin_face.png = textures/blocks_renamed/pumpkin_face_off.png
+textures/blocks/pumpkin_jack.png = textures/blocks_renamed/pumpkin_face_on.png
+textures/blocks/pumpkin_side.png = textures/blocks_renamed/pumpkin_side.png
+textures/blocks/pumpkin_top.png = textures/blocks_renamed/pumpkin_top.png
+
+textures/blocks/piston_bottom.png = textures/blocks_renamed/piston_bottom.png
+textures/blocks/piston_inner_top.png = textures/blocks_renamed/piston_inner.png
+textures/blocks/piston_side.png = textures/blocks_renamed/piston_side.png
+textures/blocks/piston_top.png = textures/blocks_renamed/piston_top_normal.png
+textures/blocks/piston_top_sticky.png = textures/blocks_renamed/piston_top_sticky.png
+
+textures/blocks/farmland_dry.png = textures/blocks_renamed/farmland_dry.png
+textures/blocks/farmland_wet.png = textures/blocks_renamed/farmland_wet.png
+
+textures/blocks/endframe_eye.png = textures/blocks_renamed/endframe_eye.png
+textures/blocks/endframe_side.png = textures/blocks_renamed/endframe_side.png
+textures/blocks/endframe_top.png = textures/blocks_renamed/endframe_top.png
+
+textures/blocks/enchantment_bottom.png = textures/blocks_renamed/enchanting_table_bottom.png
+textures/blocks/enchantment_side.png = textures/blocks_renamed/enchanting_table_side.png
+textures/blocks/enchantment_top.png = textures/blocks_renamed/enchanting_table_top.png
+
+textures/blocks/water.png = textures/blocks_renamed/water_still.png
+textures/blocks/water_flow.png = textures/blocks_renamed/water_flow.png
+
+textures/blocks/lava.png = textures/blocks_renamed/lava_still.png
+textures/blocks/lava_flow.png = textures/blocks_renamed/lava_flow.png
+
+textures/blocks/lightgem.png = textures/blocks_renamed/glowstone.png
+
+textures/blocks/mobSpawner.png = textures/blocks_renamed/mob_spawner.png
+
+textures/blocks/hellrock.png = textures/blocks_renamed/netherrack.png
+textures/blocks/hellsand.png = textures/blocks_renamed/soul_sand.png
+
+textures/blocks/tripWire.png = textures/blocks_renamed/trip_wire.png
+textures/blocks/tripWireSource.png = textures/blocks_renamed/trip_wire_source.png
+
+textures/blocks/commandBlock.png = textures/blocks_renamed/command_block.png
+
+textures/blocks/dispenser_front.png = textures/blocks_renamed/dispenser_front_horizontal.png
+textures/blocks/dispenser_front_vertical.png = textures/blocks_renamed/dispenser_front_vertical.png
+
+textures/blocks/dropper_front.png = textures/blocks_renamed/dropper_front_horizontal.png
+textures/blocks/dropper_front_vertical.png = textures/blocks_renamed/dropper_front_vertical.png
+
+textures/blocks/furnace_front.png = textures/blocks_renamed/furnace_front_off.png
+textures/blocks/furnace_front_lit.png = textures/blocks_renamed/furnace_front_on.png
+textures/blocks/furnace_side.png = textures/blocks_renamed/furnace_side.png
+textures/blocks/furnace_top.png = textures/blocks_renamed/furnace_top.png
+
+textures/blocks/itemframe_back.png = textures/blocks_renamed/itemframe_background.png
+
+textures/blocks/hopper.png = textures/blocks_renamed/hopper_outside.png
+textures/blocks/hopper_inside.png = textures/blocks_renamed/hopper_inside.png
+textures/blocks/hopper_top.png = textures/blocks_renamed/hopper_top.png
+
+textures/blocks/thinglass_top.png = textures/blocks_renamed/glass_pane_top.png
+
+textures/blocks/cactus_bottom.png = textures/blocks_renamed/cactus_bottom.png
+textures/blocks/cactus_side.png = textures/blocks_renamed/cactus_side.png
+textures/blocks/cactus_top.png = textures/blocks_renamed/cactus_top.png
+
+textures/blocks/daylightDetector_side.png = textures/blocks_renamed/daylight_detector_side.png
+textures/blocks/daylightDetector_top.png = textures/blocks_renamed/daylight_detector_top.png
+
+textures/blocks/jukebox_top.png = textures/blocks_renamed/jukebox_top.png
+
+textures/blocks/comparator.png = textures/blocks_renamed/comparator_off.png
+textures/blocks/comparator_lit.png = textures/blocks_renamed/comparator_on.png
+
+textures/blocks/fenceIron.png = textures/blocks_renamed/iron_bars.png
+
+textures/blocks/hayBlock.png = textures/blocks_renamed/hay_block_side.png
+textures/blocks/hayBlock_top.png = textures/blocks_renamed/hay_block_top.png
+
+textures/blocks/brick.png = textures/blocks_renamed/brick.png
+textures/blocks/deadbush.png = textures/blocks_renamed/deadbush.png
+textures/blocks/dirt.png = textures/blocks_renamed/dirt.png
+textures/blocks/dragonEgg.png = textures/blocks_renamed/dragon_egg.png
+textures/blocks/fern.png = textures/blocks_renamed/fern.png
+textures/blocks/flowerPot.png = textures/blocks_renamed/flower_pot.png
+textures/blocks/glass.png = textures/blocks_renamed/glass.png
+textures/blocks/gravel.png = textures/blocks_renamed/gravel.png
+textures/blocks/ice.png = textures/blocks_renamed/ice.png
+textures/blocks/ladder.png = textures/blocks_renamed/ladder.png
+textures/blocks/lever.png = textures/blocks_renamed/lever.png
+textures/blocks/musicBlock.png = textures/blocks_renamed/noteblock.png
+textures/blocks/mycel_side.png = textures/blocks_renamed/mycelium_side.png
+textures/blocks/mycel_top.png = textures/blocks_renamed/mycelium_top.png
+textures/blocks/netherBrick.png = textures/blocks_renamed/nether_brick.png
+textures/blocks/obsidian.png = textures/blocks_renamed/obsidian.png
+textures/blocks/portal.png = textures/blocks_renamed/portal.png
+textures/blocks/sponge.png = textures/blocks_renamed/sponge.png
+textures/blocks/tallgrass.png = textures/blocks_renamed/tallgrass.png
+textures/blocks/torch.png = textures/blocks_renamed/torch_on.png
+textures/blocks/trapdoor.png = textures/blocks_renamed/trapdoor.png
+textures/blocks/vine.png = textures/blocks_renamed/vine.png
+textures/blocks/waterlily.png = textures/blocks_renamed/waterlily.png
+textures/blocks/web.png = textures/blocks_renamed/web.png
