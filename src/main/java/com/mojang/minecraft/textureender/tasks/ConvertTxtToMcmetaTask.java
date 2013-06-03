@@ -12,6 +12,7 @@ import net.minecraft.client.resources.metadata.animation.AnimationFrame;
 import net.minecraft.client.resources.metadata.animation.AnimationMetadataSection;
 import net.minecraft.client.resources.metadata.animation.AnimationMetadataSectionSerializer;
 import net.minecraft.client.resources.metadata.pack.PackMetadataSection;
+import net.minecraft.client.resources.metadata.pack.PackMetadataSectionSerializer;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -31,6 +32,7 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         builder.registerTypeAdapter(AnimationMetadataSection.class, new AnimationMetadataSectionSerializer());
+        builder.registerTypeAdapter(PackMetadataSection.class, new PackMetadataSectionSerializer());
         this.gson = builder.create();
     }
 
