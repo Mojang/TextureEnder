@@ -54,8 +54,18 @@ public class RenameFilesTask implements ConverterTask {
             File originalMetadata = new File(folder, key + ".mcmeta");
 
             if (original.isFile()) {
+                boolean deleteFile = true;
+
                 for (String renameTo : this.renames.get(key)) {
                     File newFile = new File(folder, renameTo);
+
+                    if (renameTo.startsWith("purged/")) {
+                        logLine("Deleted " + relativize(folder, original));
+                        continue;
+                    } else if (newFile.equals(original)) {
+                        deleteFile = false;
+                        continue;
+                    }
 
                     try {
                         FileUtils.copyFile(original, newFile);
@@ -78,8 +88,10 @@ public class RenameFilesTask implements ConverterTask {
                     logLine("Copied " + relativize(folder, original) + " to " + relativize(folder, newFile));
                 }
 
-                FileUtils.deleteQuietly(original);
-                FileUtils.deleteQuietly(originalMetadata);
+                if (deleteFile) {
+                    FileUtils.deleteQuietly(original);
+                    FileUtils.deleteQuietly(originalMetadata);
+                }
             } else {
                 logLine("Skipped renaming " + relativize(folder, original) + " - couldn't find it!");
             }
