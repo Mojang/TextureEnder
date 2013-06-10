@@ -874,13 +874,13 @@ title/bg/panorama3.png = textures/gui/title/background/panorama_3.png
 title/bg/panorama4.png = textures/gui/title/background/panorama_4.png
 title/bg/panorama5.png = textures/gui/title/background/panorama_5.png
 title/black.png = purged/black.png
-title/credits.txt = textures/gui/title/credits.txt
-title/mclogo.png = textures/gui/title/mclogo.png
+title/credits.txt = texts/credits.txt
+title/mclogo.png = textures/gui/title/minecraft.png
 title/mojang.png = textures/gui/title/mojang.png
-title/splashes.txt = textures/gui/title/splashes.txt
-title/win.txt = textures/gui/title/win.txt
-achievement/bg.png = textures/gui/achievement/achievment_bg.png
-achievement/icons.png = textures/gui/achievement/achievment_icons.png
+title/splashes.txt = texts/splashes.txt
+title/win.txt = texts/end.txt
+achievement/bg.png = textures/gui/achievement/achievement_background.png
+achievement/icons.png = textures/gui/achievement/achievement_icons.png
 
 
 # Misc
