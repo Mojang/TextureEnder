@@ -57,7 +57,7 @@ public class AnimationMetadataSectionSerializer extends BaseMetadataSectionSeria
     public JsonElement serialize(AnimationMetadataSection src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject result = new JsonObject();
 
-        result.addProperty("frametime", src.getDefaultFrameTime());
+        if (src.getDefaultFrameTime() != AnimationMetadataSection.DEFAULT_FRAME_TIME) result.addProperty("frametime", src.getDefaultFrameTime());
         if (src.getFrameWidth() != AnimationMetadataSection.UNKNOWN_SIZE) result.addProperty("width", src.getFrameWidth());
         if (src.getFrameHeight() != AnimationMetadataSection.UNKNOWN_SIZE) result.addProperty("height", src.getFrameHeight());
 

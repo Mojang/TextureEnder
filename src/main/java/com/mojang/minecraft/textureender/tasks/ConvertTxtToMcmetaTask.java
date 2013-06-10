@@ -1,7 +1,9 @@
 package com.mojang.minecraft.textureender.tasks;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Multiset;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -81,8 +83,9 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
         if (txtFile.equals(new File(root, "pack.txt"))) {
             // It's the pack information file
             logLine("Found pack metadata to convert: " + relativize(root, txtFile));
-
+            metadataFile = new File(root, "pack.mcmeta");
             List<String> lines;
+
             try {
                 lines = FileUtils.readLines(txtFile);
             } catch (IOException e) {
@@ -138,6 +141,7 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
         try {
             List<String> text = FileUtils.readLines(file);
             List<AnimationFrame> frames = Lists.newArrayList();
+            Multiset<Integer> frameTimes = HashMultiset.create();
 
             for (String line : text) {
                 for (String token : COMMA_SPLITTER.split(line)) {
@@ -154,19 +158,54 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
 
                     if (frame.getIndex() < 0) {
                         logLine("Invalid negative frame-index in legacy metadata " + relativize(root, file) + ": " + token);
+                        return null;
                     } else if (frame.getTime() <= 0 && !frame.isTimeUnknown()) {
                         logLine("Invalid non-positive frame time in legacy metadata " + relativize(root, file) + ": " + token);
+                        return null;
                     } else {
+                        frameTimes.add(frame.isTimeUnknown() ? AnimationMetadataSection.DEFAULT_FRAME_TIME : frame.getTime());
                         frames.add(frame);
                     }
                 }
             }
 
-            return new AnimationMetadataSection(frames, AnimationMetadataSection.UNKNOWN_SIZE, AnimationMetadataSection.UNKNOWN_SIZE, AnimationMetadataSection.DEFAULT_FRAME_TIME);
+            // try and clean up result if all the frametimes are identical
+
+            int defaultFrameTime = getMostCommonFrameTime(frameTimes);
+
+            for (int i = 0; i < frames.size(); i++) {
+                AnimationFrame frame = frames.get(i);
+
+                if (frame.getTime() == defaultFrameTime) {
+                    frame = new AnimationFrame(frame.getIndex());
+                } else if (defaultFrameTime != AnimationMetadataSection.DEFAULT_FRAME_TIME) {
+                    frame = new AnimationFrame(frame.getIndex(), AnimationMetadataSection.DEFAULT_FRAME_TIME);
+                }
+
+                frames.set(i, frame);
+            }
+
+            return new AnimationMetadataSection(frames, AnimationMetadataSection.UNKNOWN_SIZE, AnimationMetadataSection.UNKNOWN_SIZE, defaultFrameTime);
         } catch (Exception e) {
             logLine("Couldn't read " + relativize(root, file) + " for legacy animation metadata parsing", e);
             e.printStackTrace();
             return null;
         }
+    }
+
+    private int getMostCommonFrameTime(Multiset<Integer> frameTimes) {
+        int bestCount = 0;
+        int result = AnimationMetadataSection.DEFAULT_FRAME_TIME;
+
+        for (int time : frameTimes) {
+            int count = frameTimes.count(time);
+
+            if (count > bestCount) {
+                result = time;
+                bestCount = count;
+            }
+        }
+
+        return result;
     }
 }
