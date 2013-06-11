@@ -59,6 +59,8 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
                 } else {
                     logLine("Couldn't find list for legacy file renames");
                 }
+
+                result.add(new MoveToNamespacesTask());
             }
         }
 

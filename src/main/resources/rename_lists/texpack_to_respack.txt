@@ -41,9 +41,9 @@ textures/blocks/stem_straight.png = textures/blocks/melon_stem_disconnected.png
 textures/blocks/melon_side.png = textures/blocks/melon_side.png
 textures/blocks/melon_top.png = textures/blocks/melon_top.png
 
-textures/blocks/netherStalk_0.png = textures/blocks/nether_wart_0.png
-textures/blocks/netherStalk_1.png = textures/blocks/nether_wart_1.png
-textures/blocks/netherStalk_2.png = textures/blocks/nether_wart_2.png
+textures/blocks/netherStalk_0.png = textures/blocks/nether_wart_stage_0.png
+textures/blocks/netherStalk_1.png = textures/blocks/nether_wart_stage_1.png
+textures/blocks/netherStalk_2.png = textures/blocks/nether_wart_stage_2.png
 
 textures/blocks/cloth_0.png = textures/blocks/wool_colored_white.png
 textures/blocks/cloth_1.png = textures/blocks/wool_colored_orange.png
@@ -151,9 +151,9 @@ textures/blocks/doorIron_upper.png = textures/blocks/door_iron_upper.png
 textures/blocks/doorWood_lower.png = textures/blocks/door_wood_lower.png
 textures/blocks/doorWood_upper.png = textures/blocks/door_wood_upper.png
 
-textures/blocks/workbench_front.png = textures/blocks/workbench_front.png
-textures/blocks/workbench_side.png = textures/blocks/workbench_side.png
-textures/blocks/workbench_top.png = textures/blocks/workbench_top.png
+textures/blocks/workbench_front.png = textures/blocks/crafting_table_front.png
+textures/blocks/workbench_side.png = textures/blocks/crafting_table_side.png
+textures/blocks/workbench_top.png = textures/blocks/crafting_table_top.png
 
 textures/blocks/bed_feet_end.png = textures/blocks/bed_feet_end.png
 textures/blocks/bed_feet_side.png = textures/blocks/bed_feet_side.png
@@ -179,7 +179,7 @@ textures/blocks/tnt_top.png = textures/blocks/tnt_top.png
 
 textures/blocks/sandstone_bottom.png = textures/blocks/sandstone_bottom.png
 textures/blocks/sandstone_carved.png = textures/blocks/sandstone_carved.png
-textures/blocks/sandstone_side.png = textures/blocks/sandstone_side.png
+textures/blocks/sandstone_side.png = textures/blocks/sandstone_normal.png
 textures/blocks/sandstone_smooth.png = textures/blocks/sandstone_smooth.png
 textures/blocks/sandstone_top.png = textures/blocks/sandstone_top.png
 
@@ -203,14 +203,14 @@ textures/blocks/quartzblock_top.png = textures/blocks/quartz_block_top.png
 
 textures/blocks/netherquartz.png = textures/blocks/quartz_ore.png
 
-textures/blocks/stonebrick.png = textures/blocks/stonebrick.png
-textures/blocks/stonebricksmooth.png = textures/blocks/stonebrick_smooth.png
-textures/blocks/stonebricksmooth_carved.png = textures/blocks/stonebrick_smooth_carved.png
-textures/blocks/stonebricksmooth_cracked.png = textures/blocks/stonebrick_smooth_cracked.png
-textures/blocks/stonebricksmooth_mossy.png = textures/blocks/stonebrick_smooth_mossy.png
+textures/blocks/stonebrick.png = textures/blocks/cobblestone.png
+textures/blocks/stonebricksmooth.png = textures/blocks/stonebrick.png
+textures/blocks/stonebricksmooth_carved.png = textures/blocks/stonebrick_carved.png
+textures/blocks/stonebricksmooth_cracked.png = textures/blocks/stonebrick_cracked.png
+textures/blocks/stonebricksmooth_mossy.png = textures/blocks/stonebrick_mossy.png
 
 textures/blocks/stone.png = textures/blocks/stone.png
-textures/blocks/stoneMoss.png = textures/blocks/cobblestone_messy.png
+textures/blocks/stoneMoss.png = textures/blocks/cobblestone_mossy.png
 textures/blocks/stoneslab_side.png = textures/blocks/stone_slab_side.png
 textures/blocks/stoneslab_top.png = textures/blocks/stone_slab_top.png
 
@@ -312,6 +312,9 @@ textures/blocks/daylightDetector_side.png = textures/blocks/daylight_detector_si
 textures/blocks/daylightDetector_top.png = textures/blocks/daylight_detector_top.png
 
 textures/blocks/jukebox_top.png = textures/blocks/jukebox_top.png
+textures/blocks/musicBlock.png = textures/blocks/jukebox_side.png
+
+textures/blocks/musicBlock.png = textures/blocks/noteblock.png
 
 textures/blocks/comparator.png = textures/blocks/comparator_off.png
 textures/blocks/comparator_lit.png = textures/blocks/comparator_on.png
@@ -332,7 +335,6 @@ textures/blocks/gravel.png = textures/blocks/gravel.png
 textures/blocks/ice.png = textures/blocks/ice.png
 textures/blocks/ladder.png = textures/blocks/ladder.png
 textures/blocks/lever.png = textures/blocks/lever.png
-textures/blocks/musicBlock.png = textures/blocks/noteblock.png
 textures/blocks/mycel_side.png = textures/blocks/mycelium_side.png
 textures/blocks/mycel_top.png = textures/blocks/mycelium_top.png
 textures/blocks/netherBrick.png = textures/blocks/nether_brick.png
