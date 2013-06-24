@@ -19,6 +19,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 public class Main {
     private static final List<ConverterTask> TASKS_TO_RUN = Lists.newArrayList();
@@ -92,16 +93,26 @@ public class Main {
             if (file.isFile()) {
                 if (FilenameUtils.isExtension(file.getAbsolutePath(), "zip")) {
                     File copy = new File(FilenameUtils.removeExtension(file.getAbsolutePath()) + "-converted-" + System.currentTimeMillis());
+                    File zipTarget = new File(copy.getAbsolutePath() + ".zip");
 
                     try {
                         ConverterGui.logLine("Extracting " + file);
                         extractZip(file, copy);
                     } catch (IOException e) {
-                        ConverterGui.logLine("Couldn't copy " + file + " to " + copy, e);
+                        ConverterGui.logLine("Couldn't extract " + file + " to " + copy, e);
                         continue;
                     }
 
                     runConversions(copy);
+
+                    try {
+                        ConverterGui.logLine("Re-zipping " + copy);
+                        createZip(copy, zipTarget);
+                        ConverterGui.logLine("Cleaning up, deleting " + copy);
+                        FileUtils.deleteQuietly(copy);
+                    } catch (IOException e) {
+                        ConverterGui.logLine("Couldn't zip " + copy + " to " + zipTarget, e);
+                    }
                 } else {
                     ConverterGui.logLine("Skipping " + file + " because I don't know what it is");
                 }
@@ -146,6 +157,30 @@ public class Main {
         try {
             zip.close();
         } catch (IOException ignored) {
+        }
+    }
+
+    private static void createZip(File source, File output) throws IOException {
+        if (output.getParentFile() != null) output.getParentFile().mkdirs();
+
+        ZipOutputStream out = new ZipOutputStream(FileUtils.openOutputStream(output));
+        zipDirectory("", source, out);
+
+        IOUtils.closeQuietly(out);
+    }
+
+    private static void zipDirectory(String path, File directory, ZipOutputStream out) throws IOException {
+        for (File file : directory.listFiles()) {
+            if (file.isDirectory()) {
+                String subpath = path + file.getName() + "/";
+                out.putNextEntry(new ZipEntry(subpath));
+                zipDirectory(subpath, file, out);
+                out.closeEntry();
+            } else {
+                out.putNextEntry(new ZipEntry(path + file.getName()));
+                FileUtils.copyFile(file, out);
+                out.closeEntry();
+            }
         }
     }
 }
