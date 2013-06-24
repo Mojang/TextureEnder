@@ -183,14 +183,14 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
 
             // try and clean up result if all the frametimes are identical
 
-            int defaultFrameTime = getMostCommonFrameTime(frameTimes);
+            int defaultFrameTime = getMostCommonFrameTime(frameTimes); // 2
 
             for (int i = 0; i < frames.size(); i++) {
                 AnimationFrame frame = frames.get(i);
 
                 if (frame.getTime() == defaultFrameTime) {
                     frame = new AnimationFrame(frame.getIndex());
-                } else if (defaultFrameTime != AnimationMetadataSection.DEFAULT_FRAME_TIME) {
+                } else if (defaultFrameTime != AnimationMetadataSection.DEFAULT_FRAME_TIME && frame.isTimeUnknown()) {
                     frame = new AnimationFrame(frame.getIndex(), AnimationMetadataSection.DEFAULT_FRAME_TIME);
                 }
 
