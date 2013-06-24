@@ -2,10 +2,7 @@ package com.mojang.minecraft.textureender.tasks;
 
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
+import com.google.common.collect.*;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.minecraft.textureender.ConverterGui;
@@ -29,7 +26,7 @@ import static com.mojang.minecraft.textureender.ConverterGui.relativize;
 
 public class RenameFilesTask implements ConverterTask {
     private static final Splitter KEY_VALUE_SPLITTER = Splitter.on('=').omitEmptyStrings().trimResults().limit(2);
-    private final Multimap<String, String> renames = HashMultimap.create();
+    private final Multimap<String, String> renames = TreeMultimap.create();
     private final String taskName;
 
     public RenameFilesTask(String taskName, InputStream mapSource) throws IOException {
