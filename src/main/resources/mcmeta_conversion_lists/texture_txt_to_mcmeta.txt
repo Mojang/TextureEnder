@@ -1,0 +1,4 @@
+textures/misc/enchanted_item_glint.png = {"texture": {"blur": true}}
+textures/misc/pumpkinblur.png = {"texture": {"blur": true}}
+textures/misc/shadow.png = {"texture": {"clamp": true}}
+textures/misc/vignette.png = {"texture": {"blur": true}}

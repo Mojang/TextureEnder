@@ -49,7 +49,6 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
 
             if (file.equals(new File(folder, "pack.txt"))) {
                 InputStream stream = getClass().getResourceAsStream("/rename_lists/texpack_to_respack.txt");
-
                 if (stream != null) {
                     try {
                         result.add(new RenameFilesTask("Renaming legacy texpack files", stream));
@@ -58,6 +57,17 @@ public class ConvertTxtToMcmetaTask implements ConverterTask {
                     }
                 } else {
                     logLine("Couldn't find list for legacy file renames");
+                }
+
+                stream = getClass().getResourceAsStream("/mcmeta_conversion_lists/texture_txt_to_mcmeta.txt");
+                if (stream != null) {
+                    try {
+                        result.add(new PopulateDefaultMcMetaTask("Creating preset mcmeta for textures", stream));
+                    } catch (IOException e) {
+                        logLine("Couldn't read list for preset texture mcmetas", e);
+                    }
+                } else {
+                    logLine("Couldn't find list for preset texture mcmetas");
                 }
 
                 result.add(new MoveToNamespacesTask());
