@@ -2,6 +2,7 @@ package com.mojang.minecraft.textureender;
 
 import com.google.common.collect.Lists;
 import com.mojang.minecraft.textureender.tasks.ConvertTxtToMcmetaTask;
+import com.mojang.minecraft.textureender.tasks.DeleteEmptyDirectoriesTask;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -28,6 +29,7 @@ public class Main {
         ConverterGui gui = new ConverterGui();
 
         TASKS_TO_RUN.add(new ConvertTxtToMcmetaTask());
+        TASKS_TO_RUN.add(new DeleteEmptyDirectoriesTask());
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -78,11 +80,13 @@ public class Main {
         for (int i = 0; i < tasks.size(); i++) {
             ConverterTask task = tasks.get(i);
             ConverterGui.logLine("Starting task '" + task.getTaskName() + "'");
-            List<ConverterTask> extraTasks = task.run(folder);
 
+            List<ConverterTask> extraTasks = task.run(folder);
             if (extraTasks != null) {
                 tasks.addAll(i + 1, extraTasks);
             }
+
+            ConverterGui.logLine("Finished task '" + task.getTaskName() + "'");
         }
 
         ConverterGui.logLine("Finished converting " + folder.getAbsolutePath());
@@ -170,7 +174,10 @@ public class Main {
     }
 
     private static void zipDirectory(String path, File directory, ZipOutputStream out) throws IOException {
-        for (File file : directory.listFiles()) {
+        File[] files = directory.listFiles();
+        if (files == null) return;
+
+        for (File file : files) {
             if (file.isDirectory()) {
                 String subpath = path + file.getName() + "/";
                 out.putNextEntry(new ZipEntry(subpath));
